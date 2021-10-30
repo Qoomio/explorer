@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Files | Qoom</title>
+		<link rel="stylesheet" type="text/css" href="/libs/icons/icons.css">
+		<link rel="stylesheet" type="text/css" href="/libs/administrater/css/qoom.css">
+		<link rel="shortcut icon" href="/libs/administrater/assets/favicon.png" type="image/png">
+		<style>
+			{{BASECSS}} 
+			{{STYLES}}
+			{{LISTCSS}}
+		</style>
+	</head>
+	<body>
+		<header>
+			{{MENU}}
+			{{HEADER}}
+		</header>
+		<main>
+			<section id='features'>
+				<div id='toolboxg'>
+					<div id='codingspace'>
+						<div class='title'>🏠 &nbsp;&nbsp;Your Website</div>
+						<a class='text code' href={{codingspace}} target="_blank">{{codingspace}}</a>
+						<a class='link' href={{codingspace}} target="_blank"><i class='ic-open-in-new primary'></i>View Live Site</a>
+					</div>
+				</div>
+				<div id='toolboxa'></div>
+				<div id='toolboxb'>
+					<div id='create'>
+						<button class="qoom-main-btn qoom-button-full qoom-button-small">
+							<i class="ic-add white"></i>
+							<span>New</span>
+						</button>
+						<div class="button-upload-submenus-background"></div>
+						<ul class="button-upload-submenus"></ul>
+					</div>
+					<div id='toolboxbDev'></div>
+				</div>
+			</section>
+			<section id='full'>
+				<div id='main'>
+					<table>
+						<thead>
+							<tr>
+								<th width='40%' data='name' type='string'>
+									Name
+									<i class='ic-chevron-up blue'></i>
+									<i class='ic-chevron-down blue'></i>
+								</th>
+								<th width='10%' data='size' type='number'>
+									Size
+									<i class='ic-chevron-up blue'></i>
+									<i class='ic-chevron-down blue'></i>
+								</th>
+								<th width='15%' data='kind' type='kind'>
+									Kind
+									<i class='ic-chevron-up blue'></i>
+									<i class='ic-chevron-down blue'></i>
+								</th>
+								<th width='20%' data='dateUpdated' type='date'>
+									Last Modified
+									<i class='ic-chevron-up blue'></i>
+									<i class='ic-chevron-down blue'></i>
+								</th>
+								<th width='15%'></th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>
+			</section>
+		</main>
+		<footer>
+			{{FOOTER}}
+		</footer>
+		<script>
+			{{BASEJS}}
+			{{SCRIPT}}
+			window.getFolderPath = function() {
+				return decodeURIComponent(location.pathname.replace('/explore/list', '').replace(/^\/|\/$/g, ''))
+			}
+			
+			window.listData = {{LISTDATA}}
+			window.contentTypes = {{CONTENTTYPES}}
+			window.isProjectFolder = {{ISPROJECTFOLDER}}
+			window.members = {{MEMBERS}}
+			window.allowGit = {{ALLOWGIT}}
+			window.limits = {{LIMITS}}
+			window.configs = {{CONFIGS}}
+			window.dragAndDropEnabled = {{dragAndDropEnabled}}
+			window.listExtensions = []
+			window.imageExtensions = Object.keys(contentTypes).filter(t => contentTypes[t] === 'image')
+			window.videoExtensions = Object.keys(contentTypes).filter(t => contentTypes[t] === 'video')
+			window.textExtentsions = Object.keys(contentTypes).filter(t => contentTypes[t] === 'text')
+			window.extTypes = {}
+			window.organizationSettings = {{organizationSettings}}
+
+    		imageExtensions.forEach(e => extTypes[e] = 'image');
+    		videoExtensions.forEach(e => extTypes[e] = 'video');
+    		textExtentsions.forEach(e => extTypes[e] = 'text');
+    		
+		</script>
+		<script src='/libs/socketio.js'></script>
+		<script type='module'>
+			{{LISTEXTENSIONS}}
+		</script>
+		<script type='module' src='/libs/explorer/list/script.js'></script>
+	</body>
+</html>

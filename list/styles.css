@@ -1,0 +1,406 @@
+body {
+	display: grid;
+	grid-template-rows: 54px auto 1px;
+	overflow: hidden;
+}
+
+header {
+	height: 100%;
+}
+
+main {
+	overflow: auto;
+	padding: 20px 40px;
+}
+
+main>section {
+	max-width: 1440px;
+	margin: auto;
+}
+
+footer {
+	height: 100%;
+}
+
+table {
+	height: 100%;
+	width: 100%;
+	table-layout: fixed;
+	font-size: 16px;
+	font-weight: 300;
+	border-collapse: collapse;
+}
+
+thead {
+	width: 100%;
+}
+
+thead>tr {
+	min-height: 48px;
+}
+
+thead>tr>th {
+	cursor: pointer;
+}
+
+thead>tr>th:last-child {
+	cursor: default;
+}
+
+thead>tr>th:first-child {
+	padding-left: 8px;
+}
+
+thead i {
+	width: 24px;
+	height: 24px;
+	vertical-align: bottom;
+}
+
+tbody {
+	width: 100%;
+}
+
+tbody>tr {
+	width: 100%;
+	max-height: 150px;
+}
+
+tbody>tr>td:first-child {
+	padding-left: 8px;
+}
+
+tr:hover td {
+	background-color: var(--color-gray-10);
+}
+
+th,
+td {
+	text-align: left;
+	border-bottom: 1px solid var(--color-gray-100);
+	padding: 16px 8px;
+}
+
+th {
+	border-bottom: 1px solid var(--color-secondary);
+	color: var(--color-secondary);
+	font-weight: 500;
+}
+
+td:first-child,
+td:nth-child(3) {
+	word-break: break-all;
+}
+
+td {
+	vertical-align: middle;
+}
+
+td.control>a {
+	cursor: pointer;
+	text-decoration: none;
+	margin-right: 16px;
+	display: block;
+	float: right;
+	height: 40px;
+	padding: 10px;
+	font-size: 14px;
+}
+
+td.control>a:hover {
+	border-radius: 4px;
+	background-color: var(--color-gray-50);
+}
+
+td a i {
+	height: 20px;
+	width: 20px;
+}
+
+td a.empty {
+	height: 32px;
+}
+
+td a.delete {}
+
+td a.publish {
+	color: blue;
+}
+
+li {
+	list-style-type: none;
+}
+
+#main {
+	position: relative;
+}
+
+#main>table>thead>tr>.primary.up>.ic-chevron-up,
+#main>table>thead>tr>.primary.down>.ic-chevron-down {
+	display: inline-block;
+}
+
+#main>table>thead>tr>th>.ic-chevron-up,
+#main>table>thead>tr>th>.ic-chevron-down {
+	display: none;
+}
+
+#main>table td>a {
+	color: var(--text-dark-high);
+}
+
+#main>table td.table-file>a {
+	display: grid;
+	grid-template-areas: "i f";
+	grid-template-columns: 48px;
+}
+
+#main>table td.table-file>a>i,
+#main>table td.table-file>a>img {
+	grid-area: i;
+	width: 32px;
+	height: 32px;
+	object-fit: contain;
+}
+
+#main>table td.table-file>a>.fileNameToShow {
+	grid-area: f;
+	text-align: left;
+	align-self: center;
+	display: inline-block;
+}
+
+#main>table td.table-file>a>.fileNameToShow em {
+	color: var(--color-secondary);
+	padding: 0;
+	margin: 0;
+	font-weight: unset;
+	font-style: unset;
+}
+
+
+#main .loader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: block;
+	z-index: 10000;
+}
+
+#main .menus>a {
+	color: var(--text-dark-high);
+	text-transform: capitalize;
+	display: block;
+	width: 100%;
+}
+
+#main .menus>a.disabled {
+	color: var(--text-dark-disabled);
+}
+
+#toolboxg {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	padding: 16px 0;
+	align-content: center;
+}
+
+#toolboxg.in-folder {
+	display: none;
+}
+
+#codingspace {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	padding: 8px 16px;
+	border-radius: 4px;
+	margin-left: -8px;
+	background-color: var(--color-blue-10);
+}
+#codingspace > * {
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+#codingspace .title {
+	margin-right: 24px;
+}
+#codingspace .text {
+	color: initial;
+	margin-right: 16px;
+}
+#codingspace .text:hover {
+	text-decoration: underline;
+}
+#codingspace .link {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#codingspace .link i {
+	height: 20px;
+	width: 20px;
+	margin-right: 8px;
+}
+
+#toolboxa {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	padding: 16px 0;
+	align-content: center;
+	flex-wrap: wrap;
+}
+
+#toolboxb {
+	display: flex;
+	flex-direction: row-reverse;
+	flex-wrap: wrap;
+}
+#toolboxb > div {
+	margin-right: 8px;
+	margin-left: 8px;
+}
+#toolboxb > div:first-child {
+	margin-right: 0;
+}
+#toolboxbDev {
+	display: flex;
+	flex-direction: row-reverse;
+	flex-wrap: wrap;
+}
+#toolboxbDev > div {
+	margin-right: 8px;
+	margin-left: 8px;
+}
+#newProject button:hover .ic-folder-project {
+	-web-filter: brightness(0) saturate(100%) invert(1);
+	filter: brightness(0) saturate(100%) invert(1);
+}
+
+#create {
+	width: 120px;
+	position: relative;
+}
+
+#create i {
+	width: 24px;
+	height: 24px;
+}
+
+#create .button-upload-submenus-background {
+	opacity: 0;
+	display: none;
+	height: 100vh;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	z-index: 1;
+}
+
+#create .button-upload-submenus {
+	display: none;
+	background-color: #fff;
+	z-index: 99;
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	padding: 12px 0;
+	border-radius: 4px;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+	white-space: nowrap;
+	min-width: 150px;
+}
+
+#create .button-upload-submenu {
+	line-height: 40px;
+	cursor: pointer;
+	text-transform: capitalize;
+	padding: 4px 16px;
+}
+
+#create .button-upload-submenus li:hover {
+	background-color: var(--color-gray-10);
+}
+
+#create .button-upload-submenu i {
+	margin-right: 16px;
+	vertical-align: middle;
+}
+
+#create .button-upload-submenus hr {
+	border: 0.5px solid var(--color-gray-10);
+	margin: 0 16px;
+}
+
+#create.opened .button-upload-submenus-background,
+#create.opened .button-upload-submenus {
+	display: block;
+}
+
+.menus-background {
+	opacity: 0;
+	display: none;
+	height: 100vh;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	z-index: 1;
+}
+
+.menus-list {
+	display: none;
+	background-color: #fff;
+	z-index: 99;
+	position: absolute;
+	right: 5px;
+	padding: 8px 0;
+	border-radius: 4px;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+	white-space: nowrap;
+	line-height: 2;
+	min-width: 150px;
+	margin-bottom: 16px;
+}
+
+.menus-list .menus {
+	cursor: pointer;
+	line-height: 40px;
+	padding: 4px 16px;
+}
+
+.menus-list .menus:hover {
+	background-color: var(--color-gray-10);
+}
+
+.menus-list .menus a:hover {
+	text-decoration: none !important;
+}
+
+#publishModal .modal {
+	min-width: 50vw;
+}
+
+#publishModal .modal-container {
+	padding-top: 16px;
+	padding-bottom: 16px;
+}
+
+#publishModal .form-input label {
+	margin-bottom: 4px;
+}
+
+#publishModal .form-input .input-items.default textarea {
+	height: 64px;
+	resize: vertical;
+	padding: 8px 16px;
+}
